@@ -1,22 +1,22 @@
 ::-moz-selection {
 	color: #FFF;
-	background: #003366;
+	background: #d80d07;
 }
 
 ::selection {
 	color: #FFF;
-	background: #003366;
+	background: #d80d07;
 }
 
 :root {
-	--primary: #003366;
+	--primary: #d80d07;
 	--secondary: #e36159;
 	--tertiary: #2baab1;
 	--quaternary: #383f48;
 }
 
 a {
-	color: #003366;
+	color: #d80d07;
 }
 
 a:hover {
@@ -33,7 +33,7 @@ a:active {
 
 html .text-color-primary,
 html .text-primary {
-	color: #003366 !important;
+	color: #d80d07 !important;
 }
 
 html .text-color-hover-primary:hover,

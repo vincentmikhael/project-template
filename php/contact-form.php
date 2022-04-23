@@ -20,17 +20,17 @@ require 'php-mailer/src/SMTP.php';
 require 'php-mailer/src/Exception.php';
 
 // Step 1 - Enter your email address below.
-$email = 'you@domain.com';
+$email = 'info@satmaka.com';
 
 // If the e-mail is not working, change the debug option to 2 | $debug = 2;
 $debug = 0;
 
 // If contact form don't has the subject input change the value of subject here
-$subject = ( isset($_POST['subject']) ) ? $_POST['subject'] : 'Define subject in php/contact-form.php line 29';
+$subject = (isset($_POST['subject'])) ? $_POST['subject'] : 'Define subject in php/contact-form.php line 29';
 
 $message = '';
 
-foreach($_POST as $label => $value) {
+foreach ($_POST as $label => $value) {
 	$label = ucwords($label);
 
 	// Use the commented code below to change label texts. On this example will change "Email" to "Email Address"
@@ -40,12 +40,12 @@ foreach($_POST as $label => $value) {
 	// }
 
 	// Checkboxes
-	if( is_array($value) ) {
+	if (is_array($value)) {
 		// Store new value
 		$value = implode(', ', $value);
 	}
 
-	$message .= $label.": " . nl2br(htmlspecialchars($value, ENT_QUOTES)) . "<br>";
+	$message .= $label . ": " . nl2br(htmlspecialchars($value, ENT_QUOTES)) . "<br>";
 }
 
 $mail = new PHPMailer(true);
@@ -71,11 +71,11 @@ try {
 	//$mail->AddBCC('person4@domain.com', 'Person 4');         // Add a "Bcc" address. 
 
 	// From - Name
-	$fromName = ( isset($_POST['name']) ) ? $_POST['name'] : 'Website User';
+	$fromName = (isset($_POST['name'])) ? $_POST['name'] : 'Website User';
 	$mail->SetFrom($email, $fromName);
 
 	// Repply To
-	if( isset($_POST['email']) && !empty($_POST['email']) ) {
+	if (isset($_POST['email']) && !empty($_POST['email'])) {
 		$mail->AddReplyTo($_POST['email'], $fromName);
 	}
 
@@ -87,12 +87,11 @@ try {
 	$mail->Body    = $message;
 
 	$mail->Send();
-	$arrResult = array ('response'=>'success');
-
+	$arrResult = array('response' => 'success');
 } catch (Exception $e) {
-	$arrResult = array ('response'=>'error','errorMessage'=>$e->errorMessage());
+	$arrResult = array('response' => 'error', 'errorMessage' => $e->errorMessage());
 } catch (\Exception $e) {
-	$arrResult = array ('response'=>'error','errorMessage'=>$e->getMessage());
+	$arrResult = array('response' => 'error', 'errorMessage' => $e->getMessage());
 }
 
 if ($debug == 0) {

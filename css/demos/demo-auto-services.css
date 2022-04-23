@@ -10,6 +10,10 @@ body {
 
 .custom-border-radius-1 {
 		border-radius: 7px !important;
+		-webkit-border-radius: 7px !important;
+		-moz-border-radius: 7px !important;
+		-ms-border-radius: 7px !important;
+		-o-border-radius: 7px !important;
 }
 
 .custom-text-underline-1 {
